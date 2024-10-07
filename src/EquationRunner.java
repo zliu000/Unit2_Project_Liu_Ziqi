@@ -8,7 +8,7 @@ public class EquationRunner {
         // Variables
         String pointA;
         String pointB;
-        double pointX;
+        String pointX;
 
 
         // Main Program
@@ -25,6 +25,12 @@ public class EquationRunner {
         pointB = s.nextLine();
 
         LinearEquation linEqua = new LinearEquation(pointA, pointB);
-        System.out.println(linEqua.toString());
+        System.out.println(linEqua);
+
+        // Asking for user input
+        System.out.print("Enter a third x-value: ");
+        pointX = s.nextLine();
+
+        System.out.println(linEqua.calculatePoint(pointX));
     }
 }

@@ -38,7 +38,7 @@ Calculates the slope using instance variables
 
 void calculateYIntercept()
     yIntercept = y - mx
-    m => (float) rise / run
+    m => (double) rise / run
     Assigned to instance variable
 
 void calculateDistance()
@@ -57,7 +57,7 @@ public LinearEquation(String pointA, String pointB)
 
 String calculatePoint(String x)
     Parses the user input and assign to instance var x
-    Set instance var y = ((float)rise/run)x + b
+    Set instance var y = ((double)rise/run)x + b
     Return a string of “statement here: “ + (points)
 
 public String toString()
@@ -76,13 +76,17 @@ public String toString()
             Break slope into before and after “-”
             Assign slope to be “-” + before and after (String concatenation)
             slopeStatement is assigned “statement here” + slope
-        Else if slope is not a fraction
-            Switch case for 1/-1 slopes
-                If 1, slope = “”, use this.slope for the actual slope in the statement, break
-                If -1, slope = “-”, use this.slope for the actual slope in the statement, break
-                Default is slope = this.slope
-                    slopeStatement is assigned “statement here” + slope
+    Else if slope is not a fraction
+            If else for 1/-1 slopes
+            If 1, slope = “”, use this.slope for the actual slope in the statement
+            If -1, slope = “-”, use this.slope for the actual slope in the statement
+            Default is slope = this.slope
+            slopeStatement is assigned “statement here” + slope
+
     Y-intercept:
+        yIntercept = "statement: " + this.yIntercept
+
+    SlopeIntercept Equation:
         If else logic, evaluate the following:
             0 yIntercept:
             slopeIntercept will not have yIntercept
