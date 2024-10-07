@@ -14,8 +14,8 @@ public class EquationRunner {
         // Main Program
         // Introduction
         System.out.println("Welcome to Linear Equations!"
-                + "\n\nPlease enter all points in the following format:"
-                + "\n\t(x,y), integers, without ANY space.\n"
+                + "\n\nPlease enter all points as integers in the following format:"
+                + "\n\t(x,y), without ANY space.\n"
         );
         System.out.print("Enter your first Coordinate Point: ");
         pointA = s.nextLine();
