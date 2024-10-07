@@ -14,10 +14,8 @@ public class EquationRunner {
         // Main Program
         // Introduction
         System.out.println("Welcome to Linear Equations!"
-                + "\nThis program will return a linear equation and:"
-                + "\nThe slope blah blah blah"
                 + "\n\nPlease enter all points in the following format:"
-                + "\n\t(x,y), without ANY space.\n"
+                + "\n\t(x,y), integers, without ANY space.\n"
         );
         System.out.print("Enter your first Coordinate Point: ");
         pointA = s.nextLine();
