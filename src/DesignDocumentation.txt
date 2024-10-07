@@ -1,0 +1,104 @@
+Design Document
+
+LinearEquation class
+
+Instance Variables:
+
+	private DecimalFormat df = new DecimalFormat(“#.00”) - apply decimal rounding to nearest hundredth
+
+	private int x1 - The value of input x1 is assigned to this variable.
+	private int y1 - The value of input y1 is assigned to this variable.
+	private int x2 - The value of input x2 is assigned to this variable.
+	private int x2 - The value of input x1 is assigned to this variable.
+	private double x - This variable stores the value of input x.
+	private double y - This variable is assigned the calculated value of y.
+
+	private bool isFraction = true - Stores the evaluated boolean if the slope needs to be a fraction or not; if it’s true, then the slope is written as a fraction. Default is true.
+	private int rise - Difference between y2 and y1
+	private int run - Difference between x2 and x1
+	private int slope - Slope via rise/run ONLY when rise%run == 0.
+	Private double yIntercept - Value of x of y-intercept, calculated via b = y - mx
+
+	Private double distance - Distance between two points, found via the distance formula.
+
+
+Methods:
+
+	void calculateSlope()
+Calculates the slope using instance variables
+    rise = y2-y1
+    run = x2-x1
+    Assign values to instance variables rise, run
+    Check if the rise/run is clean division
+        If is true, assign rise/run to slope
+        Assign false to isFraction
+    Check for double negatives (that cancels out)
+        If both rise & run are negative, take the absolute value
+
+
+void calculateYIntercept()
+    yIntercept = y - mx
+    m => (float) rise / run
+    Assigned to instance variable
+
+void calculateDistance()
+    Uses the instance variables
+    Return the value of the distance formula
+
+public LinearEquation(String pointA, String pointB)
+    Parses the user inputs first
+    Find “,” and separates into halves
+    First half: substring(1, indexOf(“,”)-1)
+    Second half: substring(indexOf(“,”)+1, length()-1)
+    assigns the respective values to the variables
+    Call calculateSlope() and assign to instance var slope
+    Calls calculateYIntercept() and assign it to instance var yIntercept
+    Calls calculateDistance() and assign it to instance var distance
+
+String calculatePoint(String x)
+    Parses the user input and assign to instance var x
+    Set instance var y = ((float)rise/run)x + b
+    Return a string of “statement here: “ + (points)
+
+public String toString()
+    Initialize local variables:
+    String slopeStatement: the entire statement that is displayed for slope
+    String slope: the slope of the line
+    String slopeIntercept: Statement + the formula in slope intercept form
+    Assign to String objects
+    First pair: (x1, y1)
+    Second pair: (x2, y2)
+    Slope of line:
+    If isFraction
+        rise + “/” + run
+    Negative formatting, find the indexOf “-”
+        If index != -1 then
+            Break slope into before and after “-”
+            Assign slope to be “-” + before and after (String concatenation)
+            slopeStatement is assigned “statement here” + slope
+        Else if slope is not a fraction
+            Switch case for 1/-1 slopes
+                If 1, slope = “”, use this.slope for the actual slope in the statement, break
+                If -1, slope = “-”, use this.slope for the actual slope in the statement, break
+                Default is slope = this.slope
+                    slopeStatement is assigned “statement here” + slope
+    Y-intercept:
+        If else logic, evaluate the following:
+            0 yIntercept:
+            slopeIntercept will not have yIntercept
+            Negative yIntercept:
+                No “+” between mx and yIntercept
+            Positive yIntercept
+                “+” inserted between mx and yIntercept
+    Distance between points: statement + distance
+    String info: Final assembly of all variables by concatenating them together and return the String
+
+
+EquationRunner.java
+
+Step 1: Ask user to enter first coordinate point
+Step 2: Ask user to enter second coordinate point
+Step 3: Call the constructor with the user inputs as parameters
+Step 4: Print out the informations
+Step 5: Ask for x value
+Step 6: Print out calculated point
