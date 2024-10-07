@@ -73,9 +73,9 @@ public class LinearEquation {
 
     public String toString() {
         // Local variables
-        String slopeStatement;
-        String slope = "";
-        String slopeIntecerpt = "";
+        String slopeStatement; // statement + slope
+        String slope; // the slope, without any statement
+        String slopeIntecept; // slope-intercept form
 
         // Point pairs
         String pair1 = "First pair: (" + x1 + ", " + y1 + ")";
@@ -112,12 +112,12 @@ public class LinearEquation {
 
         // Check for 0 intercept
         if (this.yIntercept == 0) {
-            slopeIntecerpt = "Slope intercept form: y = " + slope + "x";
+            slopeIntecept = "Slope intercept form: y = " + slope + "x";
         } else {
             if (this.yIntercept < 0) {
-                slopeIntecerpt = "Slope intercept form: y = " + slope + "x " + df.format(this.yIntercept);
+                slopeIntecept = "Slope intercept form: y = " + slope + "x " + df.format(this.yIntercept);
             } else {
-                slopeIntecerpt = "Slope intercept form: y = " + slope + "x + " + df.format(this.yIntercept);
+                slopeIntecept = "Slope intercept form: y = " + slope + "x + " + df.format(this.yIntercept);
             }
 
         }
@@ -125,7 +125,7 @@ public class LinearEquation {
         // Distance
         String distance = "Distance between points: " + df.format(this.distance);
 
-        String info = pair1 + "\n" + pair2 + "\n" + slopeStatement + "\n" + yIntercept + "\n" + slopeIntecerpt + "\n" + distance;
+        String info = pair1 + "\n" + pair2 + "\n" + slopeStatement + "\n" + yIntercept + "\n" + slopeIntecept + "\n" + distance;
 
         return info;
 
